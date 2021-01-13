@@ -11,4 +11,12 @@ From: ubuntu:20.04
      mkdir /data
      cd /data
      apt-get update
-     apt-get -y install git make cmake libhdf5-dev  
+     export TZ=Asia/Kolkata
+     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+     apt-get -y install git make cmake libhdf5-dev python3 wget
+     wget https://developer.download.nvidia.com/hpc-sdk/20.11/nvhpc-20-11_20.11_amd64.deb \
+     https://developer.download.nvidia.com/hpc-sdk/20.11/nvhpc-2020_20.11_amd64.deb
+     apt-get -y install ./nvhpc-20-11_20.11_amd64.deb ./nvhpc-2020_20.11_amd64.deb
+     git clone https://github.com/Nischay-Pro/mfcfd.git --branch=hdf5-sec-order --depth=1 fortran
+     cd fortran/install
+     python3 install.py --mfcfd cuda
