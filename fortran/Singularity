@@ -1,0 +1,14 @@
+Bootstrap: docker
+From: ubuntu:20.04
+
+%runscript
+
+     cd /data
+     exec python3 -m http.server 9999
+
+%post
+
+     mkdir /data
+     cd /data
+     apt-get update
+     apt-get -y install git make cmake libhdf5-dev  
