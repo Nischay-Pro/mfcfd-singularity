@@ -3,8 +3,9 @@ From: ubuntu:latest
 
 %runscript
 
-     cd /data
-     exec python3 -m http.server 9999
+     cp /data/fortran/install/execname /fortran
+     cd /fortran
+     ./execname
 
 %post
      apt-get update
@@ -19,12 +20,14 @@ From: ubuntu:latest
      spack load nvhpc
      spack compiler add
      spack install hdf5 +cxx +fortran +hl -mpi %nvhpc
+     spack clean -a
      mkdir /data
      cd /data
      git clone https://github.com/Nischay-Pro/mfcfd.git --branch=hdf5-sec-order --depth=1 fortran
-     cd fortran/install
      spack unload
      spack load cuda
      spack load nvhpc
      spack load hdf5
-     CUDA_CUDART_LIBRARY=$(spack location -i cuda)/targets/x86_64-linux/lib/libcudart.so python3 install.py --mfcfd cuda
+     cd fortran/install
+     python3 install.py --mfcfd cuda
+     mkdir /fortran
