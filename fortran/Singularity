@@ -2,7 +2,6 @@ Bootstrap: docker
 From: ubuntu:latest
 
 %runscript
-
      cp /data/fortran/install/execname /fortran
      cd /fortran
      ./execname
@@ -16,7 +15,9 @@ From: ubuntu:latest
      . /opt/spack/share/spack/setup-env.sh
      spack compiler add
      spack install cuda
+     spack clean -a
      spack install nvhpc
+     spack clean -a
      spack load nvhpc
      spack compiler add
      spack install hdf5 +cxx +fortran +hl -mpi %nvhpc
