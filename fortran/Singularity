@@ -14,21 +14,25 @@ From: ubuntu:latest
      git clone https://github.com/spack/spack.git --depth=1 /opt/spack
      . /opt/spack/share/spack/setup-env.sh
      spack compiler add
-     spack install cuda
-     spack clean -a
      spack install nvhpc
      spack clean -a
      spack load nvhpc
      spack compiler add
      spack install hdf5 +cxx +fortran +hl -mpi %nvhpc
      spack clean -a
+     apt-get -y autoremove
+     apt-get -y clean
      mkdir /data
      cd /data
      git clone https://github.com/Nischay-Pro/mfcfd.git --branch=hdf5-sec-order --depth=1 fortran
      spack unload
-     spack load cuda
      spack load nvhpc
      spack load hdf5
      cd fortran/install
      python3 install.py --mfcfd cuda
+     spack unload
+     spack clean -a
+     apt-get -y purge git make python3 wget build-essential cmake curl
+     apt-get -y autoremove
+     apt-get -y clean
      mkdir /fortran
