@@ -32,7 +32,4 @@ From: ubuntu:latest
      python3 install.py --mfcfd cuda
      spack unload
      spack clean -a
-     apt-get -y purge git make python3 wget build-essential cmake curl
-     apt-get -y autoremove
-     apt-get -y clean
      mkdir /fortran
