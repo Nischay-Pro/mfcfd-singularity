@@ -13,12 +13,13 @@ From: ubuntu:latest
      apt-get -y install git make python3 wget build-essential cmake curl python3-pip
      git clone https://github.com/spack/spack.git --depth=1 /opt/spack
      . /opt/spack/share/spack/setup-env.sh
+     echo "source /opt/spack/share/spack/setup-env.sh" >> ~/.bashrc
      spack compiler add
-     spack install nvhpc
+     spack install nvhpc target=x86_64
      spack clean -a
      spack load nvhpc
      spack compiler add
-     spack install hdf5 +cxx +fortran +hl -mpi %nvhpc
+     spack install hdf5 +cxx +fortran +hl -mpi target=x86_64 %nvhpc
      spack clean -a
      apt-get -y autoremove
      apt-get -y clean
