@@ -14,7 +14,7 @@ RUN apt-get -y autoremove
 RUN apt-get -y clean
 RUN mkdir /data
 WORKDIR /data
-RUN git clone https://github.com/Nischay-Pro/mfcfd.git --branch=hdf5-sec-order --depth=1 fortran
+RUN git clone https://github.com/Nischay-Pro/mfcfd.git --branch=rewrite-second-order --depth=1 fortran
 WORKDIR /data/fortran/install
 RUN source /opt/spack/share/spack/setup-env.sh && spack load hdf5 && CC=nvc CXX=nvc++ python3 install.py --mfcfd cuda
 RUN mkdir /fortran
