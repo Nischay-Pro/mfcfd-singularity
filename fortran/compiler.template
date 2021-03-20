@@ -1,10 +1,10 @@
 - compiler:
     spec: nvhpc@21.1
     paths:
-      cc: {{PATH}}/Linux_x86_64/21.1/compilers/bin/nvc
-      cxx: {{PATH}}/Linux_x86_64/21.1/compilers/bin/nvc++
-      f77: {{PATH}}/Linux_x86_64/21.1/compilers/bin/nvfortran
-      fc: {{PATH}}/Linux_x86_64/21.1/compilers/bin/nvfortran
+      cc: {{PATH}}/Linux_x86_64/21.2/compilers/bin/nvc
+      cxx: {{PATH}}/Linux_x86_64/21.2/compilers/bin/nvc++
+      f77: {{PATH}}/Linux_x86_64/21.2/compilers/bin/nvfortran
+      fc: {{PATH}}/Linux_x86_64/21.2/compilers/bin/nvfortran
     flags: {}
     operating_system: ubuntu20.04
     target: x86_64

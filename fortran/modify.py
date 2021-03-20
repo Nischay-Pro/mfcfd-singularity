@@ -3,7 +3,7 @@ import subprocess
 def main():
     spack = open("/root/.spack/linux/compilers.yaml").read()
 
-    nvhpc_path = getApplicationOutput(["/opt/spack/bin/spack", "location", "-i", "nvhpc@21.1"]).split("\n")[0]
+    nvhpc_path = getApplicationOutput(["/opt/spack/bin/spack", "location", "-i", "nvhpc@21.2"]).split("\n")[0]
 
     data = open("/root/compiler.template").read()
     data = data.replace("{{PATH}}", nvhpc_path)
