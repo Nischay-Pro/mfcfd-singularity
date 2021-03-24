@@ -1,0 +1,11 @@
+using Pkg
+pkg"add ArgParse"
+pkg"add CUDA"
+pkg"add HDF5"
+pkg"add JSON"
+pkg"add SpecialFunctions"
+pkg"add StaticArrays"
+pkg"add TimerOutputs"
+pkg"add Printf"
+pkg"add DelimitedFiles"
+pkg"precompile"
